@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -94,8 +91,23 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> searchJobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+
+            //String aValue = row.get(value);
+            for (Map.Entry<String, String> entry : row.entrySet()) {
+
+                if(entry.getValue().toLowerCase().contains(value.toLowerCase())) {
+
+                    searchJobs.add(row);
+
+                    break;
+                }
+            }
+        }
+
+        return searchJobs;
     }
 
     /**

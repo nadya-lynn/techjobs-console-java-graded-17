@@ -81,7 +81,7 @@ public class TechJobs {
         // associate an integer with each one
         int i = 0;
         for (String choiceKey : choices.keySet()) {
-            choiceKeys[i] = choiceKey;
+            choiceKeys[i] = choiceKey.toLowerCase();
             i++;
         }
 
@@ -119,7 +119,20 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.isEmpty()) {
+            System.out.print("No Results");
+            return;
+        }
+        for (HashMap<String, String> oneJob : someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+            System.out.println("\n*****");
+
+            for (String key : oneJob.keySet()) {
+                System.out.println(key + ": " + oneJob.get(key));
+            }
+            System.out.println("*****");
+        }
+
     }
+
 }
