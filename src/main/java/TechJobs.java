@@ -81,7 +81,7 @@ public class TechJobs {
         // associate an integer with each one
         int i = 0;
         for (String choiceKey : choices.keySet()) {
-            choiceKeys[i] = choiceKey.toLowerCase();
+            choiceKeys[i] = choiceKey;
             i++;
         }
 
